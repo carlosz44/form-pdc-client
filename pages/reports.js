@@ -5,7 +5,7 @@ import authContext from "../context/auth/authContext";
 export default function Reports() {
   // Auth user from Local Storage
   const AuthContext = useContext(authContext);
-  const { authenticatedUser } = AuthContext;
+  const { authenticatedUser, user } = AuthContext;
 
   // Extraer el mensaje de error de archivos
   // const AppContext = useContext(appContext);
@@ -21,8 +21,11 @@ export default function Reports() {
 
   return (
     <div className="flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <p>TE LOGUEASTE CAMPEÓN</p>
-      <p>Próximamente página de reportes</p>
+      {user ? (
+        <p>Próximamente página de reportes</p>
+      ) : (
+        <p>UD NO ESTÁ AUTORIZADO</p>
+      )}
     </div>
   );
 }

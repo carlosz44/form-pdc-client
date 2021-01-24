@@ -1,26 +1,26 @@
 import { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import clientAxios from "../config/axios";
-// import appContext from "../context/app/appContext";
+import appContext from "../context/app/appContext";
 import authContext from "../context/auth/authContext";
 
 export default function Dropzone() {
-  // const AppContext = useContext(appContext);
-  // const { cargando, mostrarAlerta, subirArchivo, crearEnlace } = AppContext;
+  const AppContext = useContext(appContext);
+  const { loading, showAlert, uploadFile, crearEnlace } = AppContext;
 
   const AuthContext = useContext(authContext);
   // const { user, autenticado } = AuthContext;
 
   const onDropRejected = () => {
-    mostrarAlerta("No se pudo subir, el limite es 10MB");
+    showAlert("No se pudo subir, el limite es 10MB");
   };
 
   const onDropAccepted = useCallback(async (acceptedFiles) => {
-    // Crear un form Data
+    // Create a form Data
     const formData = new FormData();
     formData.append("uploadedFile", acceptedFiles[0]);
 
-    // subirArchivo(formData, acceptedFiles[0].path);
+    uploadFile(formData, acceptedFiles[0].path);
   }, []);
 
   const maxSize = 1000000000000;
@@ -94,7 +94,7 @@ export default function Dropzone() {
           </p>
         </div>
       </div>
-      <ul>{loadedFiles}</ul>
+      {loading ? <p>Subiendo archivo</p> : <ul>{loadedFiles}</ul>}
     </>
   );
 }

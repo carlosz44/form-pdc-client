@@ -2,12 +2,16 @@ import { useContext, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import authContext from "../context/auth/authContext";
+import appContext from "../context/app/appContext";
 import Alert from "../components/Alert";
 import Dropzone from "../components/Dropzone";
 
 export default function Register() {
   const AuthContext = useContext(authContext);
   const { message, registerUser } = AuthContext;
+
+  const AppContext = useContext(appContext);
+  const { message_file, url } = AppContext;
 
   const {
     values,
@@ -71,6 +75,7 @@ export default function Register() {
           Registro de Información
         </h2>
         {message && <Alert />}
+        {message_file && <Alert />}
         <form onSubmit={handleSubmit}>
           <div className="shadow overflow-hidden sm:rounded-md">
             <div className="px-4 py-5 bg-white sm:p-6">
@@ -335,16 +340,6 @@ export default function Register() {
                     Copia de Contrato
                   </label>
                   <Dropzone />
-                  {/* <input
-                    type="text"
-                    name="contractUrl"
-                    id="contractUrl"
-                    autoComplete="contractUrl"
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-pdc-purple focus:border-pdc-purple focus:ring-1 sm:text-sm"
-                    value={values.contractUrl}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                  /> */}
                 </div>
               </div>
             </div>
