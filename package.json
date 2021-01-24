@@ -1,7 +1,7 @@
 {
-  "name": "next-starter-tailwind",
+  "name": "form-pdc-client",
   "version": "2.0.0",
-  "description": "Next.js starter styled with Tailwind CSS",
+  "description": "NextJS client for uploading documents and storing forms data",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -10,18 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taylorbryant/next-starter-tailwind.git"
+    "url": "git+https://github.com/carlosz44/form-pdc-client.git"
   },
-  "author": "Taylor Bryant",
+  "author": "Carlos Amoros",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/taylorbryant/next-starter-tailwind/issues"
-  },
-  "homepage": "https://github.com/taylorbryant/next-starter-tailwind#readme",
+  "homepage": "https://github.com/carlosz44/form-pdc-client.git#readme",
   "dependencies": {
+    "@tailwindcss/forms": "^0.2.1",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "formik": "^2.2.6",
     "next": "10.0.4",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-dropzone": "^11.2.4",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "autoprefixer": "10.1.0",
