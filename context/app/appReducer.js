@@ -5,10 +5,7 @@ import {
   UPLOAD_FILE_OK,
   UPLOAD_FILE_ERROR,
   CREATE_LINK_OK,
-  // CREATE_LINK_ERROR,
   CLEAN_STATE,
-  // AGREGAR_PASSWORD,
-  // AGREGAR_DESCARGAS,
 } from "../../types";
 
 export default function AppReducer(state, action) {
@@ -53,21 +50,9 @@ export default function AppReducer(state, action) {
         name: "",
         original_name: "",
         loading: null,
-        // descargas: 1,
-        // password: "",
         autor: null,
         url: "",
       };
-    // case AGREGAR_PASSWORD:
-    //   return {
-    //     ...state,
-    //     password: action.payload,
-    //   };
-    // case AGREGAR_DESCARGAS:
-    //   return {
-    //     ...state,
-    //     descargas: action.payload,
-    //   };
     default:
       return state;
   }

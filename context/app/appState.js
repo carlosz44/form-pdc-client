@@ -8,10 +8,7 @@ import {
   UPLOAD_FILE_OK,
   UPLOAD_FILE_ERROR,
   CREATE_LINK_OK,
-  CREAR_ENLACE_ERROR,
   CLEAN_STATE,
-  AGREGAR_PASSWORD,
-  AGREGAR_DESCARGAS,
 } from "../../types";
 import clientAxios from "../../config/axios";
 
@@ -21,16 +18,14 @@ const AppState = ({ children }) => {
     name: "",
     original_name: "",
     loading: null,
-    // descargas: 1,
-    // password: "",
     autor: null,
     url: "",
   };
 
-  // Crear dispatch y state
+  // Create dispatch and state
   const [state, dispatch] = useReducer(appReducer, initialState);
 
-  // Muestra una alerta
+  // Show Alert
   const showAlert = (msg) => {
     dispatch({
       type: SHOW_ALERT,
@@ -44,7 +39,7 @@ const AppState = ({ children }) => {
     }, 3000);
   };
 
-  // Sube los archivos al servidor
+  // Uploads files to server
   const uploadFile = async (formData, fileName) => {
     dispatch({
       type: UPLOAD_FILE,
@@ -68,13 +63,11 @@ const AppState = ({ children }) => {
     }
   };
 
-  // crea un enlace una vez que se subió el archivo
+  // Create a link for admin to download the file
   const createLink = async () => {
     const data = {
       name: state.name,
       original_name: state.original_name,
-      // descargas: state.descargas,
-      // password: state.password,
       autor: state.autor,
     };
 
@@ -96,22 +89,6 @@ const AppState = ({ children }) => {
     });
   };
 
-  // Agregue el password
-  // const agregarPassword = (password) => {
-  //   dispatch({
-  //     type: AGREGAR_PASSWORD,
-  //     payload: password,
-  //   });
-  // };
-
-  // // agrega un número de descargas
-  // const agregarDescargas = (descargas) => {
-  //   dispatch({
-  //     type: AGREGAR_DESCARGAS,
-  //     payload: descargas,
-  //   });
-  // };
-
   return (
     <appContext.Provider
       value={{
@@ -119,16 +96,12 @@ const AppState = ({ children }) => {
         name: state.name,
         original_name: state.original_name,
         loading: state.loading,
-        // descargas: state.descargas,
-        // password: state.password,
         autor: state.autor,
         url: state.url,
         showAlert,
         uploadFile,
         createLink,
         cleanState,
-        // agregarPassword,
-        // agregarDescargas,
       }}
     >
       {children}

@@ -21,7 +21,7 @@ const AuthState = ({ children }) => {
     authenticated: null,
     user: null,
     message: null,
-    // loading: null,
+    loading: null,
   };
 
   // Define Reducer
@@ -92,7 +92,7 @@ const AuthState = ({ children }) => {
     }
   };
 
-  // Cerrar la sesión
+  // Logging out
   const logOut = () => {
     dispatch({
       type: LOGOUT_OK,
@@ -106,7 +106,7 @@ const AuthState = ({ children }) => {
         authenticated: state.authenticated,
         user: state.user,
         message: state.message,
-        //   cargando: state.cargando,
+        loading: state.loading,
         registerUser,
         loginAdmin,
         authenticatedUser,
