@@ -1,6 +1,6 @@
 import "../css/index.css";
 import Head from "next/head";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 import AuthState from "../context/auth/authState";
 import AppState from "../context/app/appState";
 
