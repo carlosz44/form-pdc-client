@@ -1,14 +1,14 @@
 import { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
-import clientAxios from "../config/axios";
+// import clientAxios from "../config/axios";
 import appContext from "../context/app/appContext";
-import authContext from "../context/auth/authContext";
+// import authContext from "../context/auth/authContext";
 
 export default function Dropzone() {
   const AppContext = useContext(appContext);
-  const { loading, showAlert, uploadFile, crearEnlace } = AppContext;
+  const { loading, showAlert, uploadFile, createLink } = AppContext;
 
-  const AuthContext = useContext(authContext);
+  // const AuthContext = useContext(authContext);
   // const { user, autenticado } = AuthContext;
 
   const onDropRejected = () => {
@@ -22,6 +22,8 @@ export default function Dropzone() {
 
     uploadFile(formData, acceptedFiles[0].path);
   }, []);
+  // createLink();
+  // TODO: Validar por que renderiza constantemente
 
   const maxSize = 1000000000000;
 

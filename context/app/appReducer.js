@@ -6,7 +6,7 @@ import {
   UPLOAD_FILE_ERROR,
   CREATE_LINK_OK,
   // CREATE_LINK_ERROR,
-  LIMPIAR_STATE,
+  CLEAN_STATE,
   // AGREGAR_PASSWORD,
   // AGREGAR_DESCARGAS,
 } from "../../types";
@@ -46,7 +46,7 @@ export default function AppReducer(state, action) {
         ...state,
         url: action.payload,
       };
-    case LIMPIAR_STATE:
+    case CLEAN_STATE:
       return {
         ...state,
         message_file: null,

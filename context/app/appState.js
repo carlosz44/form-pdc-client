@@ -9,7 +9,7 @@ import {
   UPLOAD_FILE_ERROR,
   CREATE_LINK_OK,
   CREAR_ENLACE_ERROR,
-  LIMPIAR_STATE,
+  CLEAN_STATE,
   AGREGAR_PASSWORD,
   AGREGAR_DESCARGAS,
 } from "../../types";
@@ -69,7 +69,7 @@ const AppState = ({ children }) => {
   };
 
   // crea un enlace una vez que se subió el archivo
-  const crearEnlace = async () => {
+  const createLink = async () => {
     const data = {
       name: state.name,
       original_name: state.original_name,
@@ -79,7 +79,8 @@ const AppState = ({ children }) => {
     };
 
     try {
-      const resultado = await clienteAxios.post("/api/links", data);
+      const resultado = await clientAxios.post("/api/links", data);
+
       dispatch({
         type: CREATE_LINK_OK,
         payload: resultado.data.msg,
@@ -89,9 +90,9 @@ const AppState = ({ children }) => {
     }
   };
 
-  const limpiarState = () => {
+  const cleanState = () => {
     dispatch({
-      type: LIMPIAR_STATE,
+      type: CLEAN_STATE,
     });
   };
 
@@ -124,8 +125,8 @@ const AppState = ({ children }) => {
         url: state.url,
         showAlert,
         uploadFile,
-        crearEnlace,
-        limpiarState,
+        createLink,
+        cleanState,
         // agregarPassword,
         // agregarDescargas,
       }}

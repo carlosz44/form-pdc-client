@@ -11,7 +11,7 @@ export default function Register() {
   const { message, registerUser } = AuthContext;
 
   const AppContext = useContext(appContext);
-  const { message_file, url } = AppContext;
+  const { message_file, url, cleanState } = AppContext;
 
   const {
     values,
@@ -65,6 +65,7 @@ export default function Register() {
     }),
     onSubmit: (datos) => {
       registerUser(datos);
+      cleanState();
     },
   });
 
@@ -192,11 +193,11 @@ export default function Register() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
-                    <option>--Elija una opción--</option>
-                    <option>DNI</option>
-                    <option>CE</option>
-                    <option>Pasaporte</option>
-                    <option>Otro</option>
+                    <option value="">--Elija una opción--</option>
+                    <option value="DNI">DNI</option>
+                    <option value="CE">CE</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="Otro">Otro</option>
                   </select>
                   {touched.idType && errors.idType ? (
                     <div className="my-2 bg-gray-50 border-l-4 border-red-700 text-red-700 p-4 text-sm">
@@ -245,10 +246,10 @@ export default function Register() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
-                    <option>--Elija una opción--</option>
-                    <option>Tipo 1</option>
-                    <option>Tipo 2</option>
-                    <option>Tipo 3</option>
+                    <option value="">--Elija una opción--</option>
+                    <option value="1">Tipo 1</option>
+                    <option value="2">Tipo 2</option>
+                    <option value="3">Tipo 3</option>
                   </select>
                   {touched.retailSpaceType && errors.retailSpaceType ? (
                     <div className="my-2 bg-gray-50 border-l-4 border-red-700 text-red-700 p-4 text-sm">
@@ -297,9 +298,9 @@ export default function Register() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                   >
-                    <option>--Elija una opción--</option>
-                    <option>Contado</option>
-                    <option>Financiado</option>
+                    <option value="">--Elija una opción--</option>
+                    <option value="Contado">Contado</option>
+                    <option value="Financiado">Financiado</option>
                   </select>
                   {touched.mode && errors.mode ? (
                     <div className="my-2 bg-gray-50 border-l-4 border-red-700 text-red-700 p-4 text-sm">
