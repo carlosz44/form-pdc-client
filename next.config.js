@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    backendURL: "http://localhost:4000",
-    frontendURL: "http://localhost:3000",
+    backendURL: "https://form-pdc-server.herokuapp.com",
+    frontendURL: "https://form-pdc-client.vercel.app",
   },
 };
